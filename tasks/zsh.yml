@@ -1,4 +1,4 @@
 - name: Install ZSH
-  package:
+  apt:
     name: zsh
   tags: zsh
