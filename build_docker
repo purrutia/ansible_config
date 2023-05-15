@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+docker rmi autotest:0.3
+docker build . -t autotest:0.3
