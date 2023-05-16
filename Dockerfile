@@ -22,3 +22,5 @@ RUN adduser elfremen sudo
 USER elfremen
 WORKDIR /home/elfremen
 
+COPY --chown=elfremen:elfremen ./local.yml ./local.yml
+COPY --chown=elfremen:elfremen ./tasks ./tasks

@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-docker rmi autotest:0.3
-docker build . -t autotest:0.3
+docker rmi ansibletest:0.2
+docker build . -t ansibletest:0.2
