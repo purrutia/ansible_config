@@ -1,0 +1,7 @@
+- name: ipcalc
+  apt:
+    name: ipcalc
+  tags:
+    - utils
+    - ipcalc
+    - networking
