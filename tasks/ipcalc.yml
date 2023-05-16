@@ -1,4 +1,4 @@
-- name: ipcalc
+- name: Install ipcalc
   apt:
     name: ipcalc
   tags:

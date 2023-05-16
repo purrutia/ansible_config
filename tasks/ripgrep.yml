@@ -1,0 +1,7 @@
+- name: Install ripgrep
+  apt:
+    name: ripgrep
+  tags:
+    - utils
+    - ripgrep
+    - neovim
