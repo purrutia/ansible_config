@@ -1,0 +1,27 @@
+- name: Install stow
+  apt:
+    name:
+      - stow
+  tags:
+    - stow
+    - dotfiles
+    - tmux
+    - nvim
+
+- name: Add .dotfiles repo to be stowed
+  become_user: "{{ user }}"
+  ansible.builtin.git:
+    repo: git@github.com:purrutia/.dotfiles.git
+    dest: ~/.dotfiles
+  tags:
+    - dotfiles
+    - nvim
+    - tmux
+
+- name: Stow .dotfiles folders
+  become_user: "{{ user }}"
+  shell: cd $HOME/.dotfiles && ./install
+  tags:
+    - dotfiles
+    - tmux
+    - nvim

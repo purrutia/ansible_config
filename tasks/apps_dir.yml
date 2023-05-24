@@ -1,0 +1,6 @@
+- name: Create .local/apps dir
+  become_user: "{{ user }}"
+  ansible.builtin.file:
+    path: ~/.local/apps
+    state: directory
+    mode: '0755'

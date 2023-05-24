@@ -1,0 +1,36 @@
+- name: Clone neovim in apps folder
+  become_user: "{{ user }}"
+  ansible.builtin.git:
+    repo: https://github.com/neovim/neovim
+    dest: ~/.local/apps/neovim
+  tags: neovim
+
+- name: Install Prerequisites
+  apt:
+    name:
+      - ninja-build
+      - gettext
+      - libtool
+      - libtool-bin
+      - autoconf
+      - automake
+      - cmake
+      - g++
+      - pkg-config
+      - unzip
+      - curl
+      - doxygen
+  tags: neovim
+
+- name: Install neovim (Make)
+  become_user: "{{ user }}"
+  make: 
+    chdir: "/home/{{ user }}/.local/apps/neovim"
+    params:
+      CMAKE_BUILD_TYPE: RelWithDebInfo
+
+- name: INSTALL Neovim
+  make:
+    chdir: "/home/{{ user }}/.local/apps/neovim"
+    target: install
+  become: yes
