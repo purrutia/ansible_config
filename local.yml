@@ -15,6 +15,7 @@
   tasks:
     - include_tasks: tasks/apps_dir.yml
     - include_tasks: tasks/zsh.yml
+    - include_tasks: tasks/nodenpm.yml
     - include_tasks: tasks/neovim.yml
     - include_tasks: tasks/tmux.yml
     - include_tasks: tasks/dotfiles.yml
