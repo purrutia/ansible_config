@@ -1,8 +1,21 @@
 - name: Install nodejs and npm
   apt:
-    - nodejs
-    - npm
+    name:
+      - nodejs
+      - npm
   tags:
     - node
     - npm
     - nvim
+
+- name: Install N
+  npm: 
+    name: n
+    global: yes
+  tags:
+    - node
+
+- name: Install node 
+  shell: n 14
+  tags:
+    - node
