@@ -1,0 +1,27 @@
+- name: Download golang
+  get_url:
+    url: https://go.dev/dl/go1.20.4.linux-amd64.tar.gz
+    dest: /root/go1.20.4.linux-amd64.tar.gz
+    checksum: sha256:698ef3243972a51ddb4028e4a1ac63dc6d60821bf18e59a807e051fee0a385bd
+  tags:
+    - golang
+
+- name: Remove any previous version of go
+  shell: rm -rf /usr/local/go
+  tags:
+    - golang
+
+- name: Extract golang to /usr/local
+  ansible.builtin.unarchive:
+    src: /root/go1.20.4.linux-amd64.tar.gz
+    dest: /usr/local
+    remote_src: yes
+  tags:
+    - golang
+
+- name: Add /usr/local/go/bin to the PATH environment variable.
+  become_user: "{{ user }}"
+  shell: echo 'export PATH=$PATH:/usr/local/go/bin' >> "${HOME}/.profile"
+  tags:
+    - golang
+

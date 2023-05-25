@@ -1,10 +1,10 @@
-FROM ubuntu:jammy
+FROM ubuntu:latest
 
 ENV DEBIAN_FRONTEND=noninteracive
 
 # Upgrade
 RUN apt update && \
-    apt dist-upgrade -y
+    apt upgrade -y
 
 # Install necessary packages
 RUN apt install -y software-properties-common curl git build-essential sudo locales locales-all
