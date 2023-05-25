@@ -7,7 +7,12 @@ RUN apt update && \
     apt dist-upgrade -y
 
 # Install necessary packages
-RUN apt install -y software-properties-common curl git build-essential sudo
+RUN apt install -y software-properties-common curl git build-essential sudo locales locales-all
+
+# Add locales environmental variables
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
 
 # Install ansible
 RUN add-apt-repository --yes --update ppa:ansible/ansible && \
