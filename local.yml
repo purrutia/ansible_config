@@ -14,15 +14,39 @@
 
   tasks:
     - include_tasks: tasks/apps_dir.yml
+      tags:
+        - apps_dir
+        - neovim
     - include_tasks: tasks/zsh.yml
+      tags:
+        - zsh
     - include_tasks: tasks/nodenpm.yml
+      tags:
+        - node
+        - neovim
+    - include_tasks: tasks/python.yml
+      tags:
+        - python
+        - neovim
     - include_tasks: tasks/golang.yml
       tags:
         - golang
+        - neovim
     - include_tasks: tasks/neovim.yml
+      tags:
+        - neovim
     - include_tasks: tasks/tmux.yml
+      tags:
+        - tmux
     - include_tasks: tasks/dotfiles.yml
+      tags:
+        - dotfiles
+        - neovim
+        - tmux
     - include_tasks: tasks/ripgrep.yml
+      tags:
+        - ripgrep
+        - neovim
     - include_tasks: tasks/ipcalc.yml
 # TODO:
 # Add .dotfiles repo
