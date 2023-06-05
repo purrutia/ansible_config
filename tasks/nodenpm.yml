@@ -3,6 +3,7 @@
     name:
       - nodejs
       - npm
+  become: yes
   tags:
     - node
     - npm
@@ -12,10 +13,12 @@
   npm: 
     name: n
     global: yes
+  become: yes
   tags:
     - node
 
 - name: Install node 
   shell: n 14
+  become: yes
   tags:
     - node

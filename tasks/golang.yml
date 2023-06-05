@@ -3,11 +3,13 @@
     url: https://go.dev/dl/go1.20.4.linux-amd64.tar.gz
     dest: /root/go1.20.4.linux-amd64.tar.gz
     checksum: sha256:698ef3243972a51ddb4028e4a1ac63dc6d60821bf18e59a807e051fee0a385bd
+  become: yes
   tags:
     - golang
 
 - name: Remove any previous version of go
   shell: rm -rf /usr/local/go
+  become: yes
   tags:
     - golang
 
@@ -16,12 +18,19 @@
     src: /root/go1.20.4.linux-amd64.tar.gz
     dest: /usr/local
     remote_src: yes
+  become: yes
   tags:
     - golang
 
-- name: Add /usr/local/go/bin to the PATH environment variable.
-  become_user: "{{ user }}"
-  shell: echo 'export PATH=$PATH:/usr/local/go/bin' >> "${HOME}/.profile"
+- name: Modify .profile adding /usr/local/go/bin to the PATH environment variable.
+  become: no
+  blockinfile:
+    path: ~/.profile
+    marker_begin: BEGIN
+    marker_end: END
+    marker: "### GOLANG {mark} ###"
+    block: |
+      export PATH=$PATH:/usr/local/go/bin
   tags:
     - golang
-
+    - neovim

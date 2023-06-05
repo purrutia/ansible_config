@@ -1,10 +1,10 @@
 ---
-- hosts: localhost
-  connection: local
-  become: true
+- name: Install all necessary apps
+  hosts: localhost
 
   pre_tasks:
   - name: Update APT
+    become: yes
     apt:
       update_cache: true
       state: present
@@ -48,6 +48,8 @@
         - ripgrep
         - neovim
     - include_tasks: tasks/ipcalc.yml
+
+    
 # TODO:
 # Add .dotfiles repo
 # stow configfiles

@@ -1,6 +1,7 @@
 - name: Install ipcalc
   apt:
     name: ipcalc
+  become: yes
   tags:
     - utils
     - ipcalc

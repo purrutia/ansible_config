@@ -2,6 +2,7 @@
   apt:
     name:
       - stow
+  become: yes
   tags:
     - stow
     - dotfiles
@@ -9,7 +10,6 @@
     - nvim
 
 - name: Add .dotfiles repo to be stowed
-  become_user: "{{ user }}"
   ansible.builtin.git:
     repo: https://github.com/purrutia/.dotfiles.git
     dest: ~/.dotfiles
@@ -19,7 +19,6 @@
     - tmux
 
 - name: Stow .dotfiles folders
-  become_user: "{{ user }}"
   shell: cd $HOME/.dotfiles && ./install
   tags:
     - dotfiles

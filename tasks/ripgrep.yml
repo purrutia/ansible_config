@@ -1,6 +1,7 @@
 - name: Install ripgrep
   apt:
     name: ripgrep
+  become: yes
   tags:
     - utils
     - ripgrep

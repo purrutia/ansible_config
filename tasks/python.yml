@@ -1,0 +1,71 @@
+- name: Install prerequisites for pyenv
+  become: yes
+  apt:
+    name:
+      - make
+      - build-essential
+      - libssl-dev
+      - zlib1g-dev
+      - libbz2-dev
+      - libreadline-dev
+      - libsqlite3-dev
+      - wget
+      - curl
+      - libncurses5-dev
+      - libncursesw5-dev
+      - xz-utils
+      - tk-dev
+      - libxml2-dev
+      - libxmlsec1-dev
+      - libffi-dev
+      - liblzma-dev
+      - llvm
+  tags:
+    - python
+    - pyenv
+    - neovim
+
+- name: Install pyenv
+  become: no
+  shell: curl https://pyenv.run | bash
+  tags:
+    - python
+    - pyenv
+    - neovim
+
+- name: Modify .profile
+  become: no
+  blockinfile:
+    path: ~/.profile
+    marker_begin: BEGIN
+    marker_end: END
+    marker: "### PYENV {mark} ###"
+    block: |
+      export PYENV_ROOT="$HOME/.pyenv"
+      command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+      eval "$(pyenv init -)"
+      eval "$(pyenv virtualenv-init -)"
+  tags:
+    - python
+    - pyenv
+    - neovim
+
+- name: Install python 3.10.10
+  become: no
+  shell: 'source  .profile && pyenv install -v 3.10.10'
+  args:
+    executable: /bin/bash
+  tags:
+    - python
+    - pyenv
+    - neovim
+
+- name: Make python 3.10.10 global
+  become: no
+  shell: 'source ~/.profile && pyenv global 3.10.10'
+  args:
+    executable: /bin/bash
+  tags:
+    - python
+    - pyenv
+    - neovim
