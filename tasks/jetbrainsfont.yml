@@ -1,0 +1,10 @@
+- name: Create .fonts folder
+  ansible.builtin.file:
+    path: ~/.fonts
+    state: directory
+    mode: '0755'
+
+- name: Download JetBrains Mono font
+  shell: curl -L $(lynx -dump https://www.nerdfonts.com/font-downloads | awk '{print $2}'| grep JetBrains | uniq) -o JetBrainsMono.zip && unzip JetBrainsMono.zip
+  args:
+    chdir: ~/.fonts/

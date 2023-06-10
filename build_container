@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+podman rmi ansible_test:0.4
+podman build . -t ansible_test:0.4

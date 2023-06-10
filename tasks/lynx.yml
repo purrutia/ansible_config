@@ -1,0 +1,6 @@
+- name: Install lynx
+  become: yes
+  apt:
+    name: lynx
+  tags:
+    lynx

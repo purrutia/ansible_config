@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# run ansible playbook local.yml
+echo 'Ansible Playbook starting...'
+ansible-playbook local.yml --ask-become-pass -u elfremen
+
+# source .profile
+echo 'Sourcing .profile'
+source .profile

@@ -29,3 +29,4 @@ WORKDIR /home/elfremen
 
 COPY --chown=elfremen:elfremen ./local.yml ./local.yml
 COPY --chown=elfremen:elfremen ./tasks ./tasks
+COPY --chown=elfremen:elfremen ./ansibletest ./ansibletest

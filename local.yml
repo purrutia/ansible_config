@@ -17,9 +17,22 @@
       tags:
         - apps_dir
         - neovim
+    # Utils
+    - include_tasks: tasks/ripgrep.yml
+      tags:
+        - ripgrep
+        - neovim
+    - include_tasks: tasks/ipcalc.yml
+      tags:
+        - ipcalc
+    - include_tasks: tasks/lynx.yml
+      tags:
+        - lynx
+    # ZSH
     - include_tasks: tasks/zsh.yml
       tags:
         - zsh
+    # Languages and compilers
     - include_tasks: tasks/nodenpm.yml
       tags:
         - node
@@ -32,24 +45,28 @@
       tags:
         - golang
         - neovim
+    # NEOVIM
     - include_tasks: tasks/neovim.yml
       tags:
         - neovim
+    # TMUX
     - include_tasks: tasks/tmux.yml
       tags:
         - tmux
+    # DOTFILES
     - include_tasks: tasks/dotfiles.yml
       tags:
         - dotfiles
         - neovim
         - tmux
-    - include_tasks: tasks/ripgrep.yml
+    # Look and Feel
+    - include_tasks: tasks/jetbrainsfont.yml
       tags:
-        - ripgrep
-        - neovim
-    - include_tasks: tasks/ipcalc.yml
-
+        - fonts
+        - lookandfeel
     
 # TODO:
-# Add .dotfiles repo
-# stow configfiles
+# * Fix script to install last version of GOLANG
+# * Install rust and cargo
+# * Install fd
+# * Install luarcocks

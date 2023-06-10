@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-docker rmi ansible_test:0.4
-docker build . -t ansible_test:0.4
