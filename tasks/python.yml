@@ -52,7 +52,7 @@
 
 - name: Install python 3.10.10
   become: no
-  shell: 'source  .profile && pyenv install -v 3.10.10'
+  shell: 'source ~/.profile && pyenv install -v 3.10.10'
   args:
     executable: /bin/bash
   tags:
