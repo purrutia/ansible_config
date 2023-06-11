@@ -30,6 +30,6 @@
 
 - name: INSTALL Neovim
   make:
-    chdir: "/home/{{ ansible_user }}/.local/apps/neovim"
+    chdir: "/home/{{ theuser.stdout }}/.local/apps/neovim"
     target: install
   become: yes

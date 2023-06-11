@@ -27,7 +27,7 @@
 - name: Install tree-sitter
   shell: ./.cargo/bin/cargo install tree-sitter-cli
   args:
-    chdir: "/home/{{ ansible_user }}/"
+    chdir: "/home/{{ theuser.stdout }}/"
   tags:
     - tree-sitter
     - rust
@@ -36,7 +36,7 @@
 - name: Install fd
   shell: ./.cargo/bin/cargo install fd-find
   args:
-    chdir: "/home/{{ ansible_user }}/"
+    chdir: "/home/{{ theuser.stdout }}/"
   tags:
     - fd
     - rust

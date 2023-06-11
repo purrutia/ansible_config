@@ -13,6 +13,10 @@
       - core
 
   tasks:
+    - name: Get current user
+      shell: whoami
+      register: theuser
+
     - include_tasks: tasks/apps_dir.yml
       tags:
         - apps_dir
@@ -76,6 +80,5 @@
     
 # TODO:
 # * Install luarcocks
-# * Install fzf
 # * Install ElGimp
 # * Install Inkscape
