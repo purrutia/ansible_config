@@ -48,6 +48,8 @@
     - include_tasks: tasks/rust.yml
       tags:
         - rust
+        - tree-sitter
+        - fd
         - neovim
     # NEOVIM
     - include_tasks: tasks/neovim.yml
@@ -70,5 +72,7 @@
         - lookandfeel
     
 # TODO:
-# * Install fd
 # * Install luarcocks
+# * Install fzf
+# * Install ElGimp
+# * Install Inkscape

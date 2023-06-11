@@ -25,7 +25,19 @@
     - nvim
 
 - name: Install tree-sitter
-  shell: source '$HOME/.cargo/env' && cargo install tree-sitter-cli
+  shell: ./.cargo/bin/cargo install tree-sitter-cli
+  args:
+    chdir: "/home/{{ ansible_user }}/"
   tags:
+    - tree-sitter
+    - rust
+    - nvim
+
+- name: Install fd
+  shell: ./.cargo/bin/cargo install fd-find
+  args:
+    chdir: "/home/{{ ansible_user }}/"
+  tags:
+    - fd
     - rust
     - nvim
