@@ -28,6 +28,9 @@
     - include_tasks: tasks/lynx.yml
       tags:
         - lynx
+    - include_tasks: tasks/fzf.yml
+      tags:
+        - fzf
     # ZSH
     - include_tasks: tasks/zsh.yml
       tags:
