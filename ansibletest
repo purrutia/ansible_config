@@ -5,5 +5,5 @@ echo 'Ansible Playbook starting...'
 ansible-playbook local.yml --ask-become-pass -u elfremen
 
 # source .profile
-echo 'Sourcing .profile'
-source .profile
+# echo 'Sourcing .profile'
+# source .profile

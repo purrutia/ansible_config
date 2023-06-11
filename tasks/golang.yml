@@ -1,9 +1,13 @@
+- name: Obtain url for the last golang version
+  shell: "lynx --dump https://go.dev/dl/ | grep https | grep linux-amd64 | awk '{print $2}' | head -1"
+  register: golang_url
+  tags:
+    - golang
+
 - name: Download golang
   get_url:
-    url: https://go.dev/dl/go1.20.4.linux-amd64.tar.gz
-    dest: /root/go1.20.4.linux-amd64.tar.gz
-    checksum: sha256:698ef3243972a51ddb4028e4a1ac63dc6d60821bf18e59a807e051fee0a385bd
-  become: yes
+    url: "{{ golang_url.stdout }}"
+    dest: /tmp/golang.tar.gz
   tags:
     - golang
 
@@ -15,7 +19,7 @@
 
 - name: Extract golang to /usr/local
   ansible.builtin.unarchive:
-    src: /root/go1.20.4.linux-amd64.tar.gz
+    src: /tmp/golang.tar.gz
     dest: /usr/local
     remote_src: yes
   become: yes

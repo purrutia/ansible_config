@@ -45,6 +45,10 @@
       tags:
         - golang
         - neovim
+    - include_tasks: tasks/rust.yml
+      tags:
+        - rust
+        - neovim
     # NEOVIM
     - include_tasks: tasks/neovim.yml
       tags:
@@ -66,7 +70,5 @@
         - lookandfeel
     
 # TODO:
-# * Fix script to install last version of GOLANG
-# * Install rust and cargo
 # * Install fd
 # * Install luarcocks
