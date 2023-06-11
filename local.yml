@@ -32,9 +32,9 @@
       tags:
         - fzf
     # ZSH
-    - include_tasks: tasks/zsh.yml
-      tags:
-        - zsh
+    # - include_tasks: tasks/zsh.yml
+    #   tags:
+    #     - zsh
     # Languages and compilers
     - include_tasks: tasks/nodenpm.yml
       tags:
