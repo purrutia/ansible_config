@@ -1,0 +1,31 @@
+- name: Download TeX Live package
+  get_url:
+    url: "https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
+    dest: /tmp/install-tl-unx.tar.gz
+  tags:
+    - latex
+
+- name: Unarchive Tex Live package
+  unarchive:
+    src: /tmp/install-tl-unx.tar.gz
+    dest: /tmp/
+    remote_src: yes
+  tags:
+    - latex
+
+- name: Get folder name
+  shell: ls -d /tmp/install-tl*/ | head -1
+  register: texfolder
+  tags:
+    - latex
+
+- name: Install TexLive on system
+  become: yes
+  shell: perl ./install-tl --no-interaction --paper=letter
+  args:
+    chdir: "{{ texfolder.stdout }}"
+  tags:
+    - latex
+
+# TODO: 
+  # Add bin folder to the PATH

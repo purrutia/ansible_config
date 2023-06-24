@@ -35,6 +35,10 @@
     - include_tasks: tasks/fzf.yml
       tags:
         - fzf
+    # LaTeX - Texlive
+    - include_tasks: tasks/texlive.yml
+      tags:
+        - latex
     # ZSH
     # - include_tasks: tasks/zsh.yml
     #   tags:
