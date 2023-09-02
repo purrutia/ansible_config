@@ -74,7 +74,6 @@
     - include_tasks: tasks/dotfiles.yml
       tags:
         - dotfiles
-        - neovim
         - tmux
     # Look and Feel
     - include_tasks: tasks/jetbrainsfont.yml
